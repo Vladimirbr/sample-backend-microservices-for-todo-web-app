@@ -1,4 +1,4 @@
-export const CRON_TIMER = "0 * * * * *"; //0 10 * * *//every day at 10
+export const CRON_TIMER = "0 0 10 * * *"; //every day at 10 //"0 * * * * *"; //for minutes
 export const DAY_BEFORE = 3;
 
 export const PORT = process.env.PORT;
