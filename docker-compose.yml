@@ -1,0 +1,45 @@
+version: "3.8"
+services:
+  crud-microservice:
+    image: crud-microservice
+    container_name: crud-microservice
+    build: ./crud-microservice/
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app
+    links:
+      - mongo
+    networks:
+      - app-network
+    depends_on:
+      - mongo
+    env_file: ./crud-microservice/.env
+  notification-microservice:
+    image: notification-microservice
+    container_name: notification-microservice
+    build: ./notification-microservice/
+    ports:
+      - 3001:3001
+    volumes:
+      - .:/usr/src/app
+    links:
+      - crud-microservice
+    networks:
+      - app-network
+    env_file: ./notification-microservice/.env
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+      - "28017:28017"
+    environment:
+      - AUTH=no
+    volumes:
+      - "./mongo/db:/data/db"
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
