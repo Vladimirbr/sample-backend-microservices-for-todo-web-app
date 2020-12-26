@@ -1,16 +1,16 @@
-#sample-backend-microservices-for-todo-web-app
+# sample-backend-microservices-for-todo-web-app
 
-##Sample exmple for micriservices backend server for TODO web app
+## Sample exmple for micriservices backend server for TODO web app
 
 Crud-microservice - microservice for TODO CRUD operation (has simple functionalities that will help users create, edit and delete todos), written with nodejs, express, mongoose and typescript.
 
 Notifier-microservice - microservice that has a simple notification logic that sends to the users notifications regarding todos reaching their deadlines, written with nodejs, express and typescript, sending notification one time per day.
 
-####I assump that all data that sended to the service is valid.
+#### I assump that all data that sended to the service is valid.
 
 ## API Examples
 
-####Get all todo's
+#### Get all todo's
 
 ```
 GET -> http://localhost:3000/api/v1/todos
@@ -27,7 +27,7 @@ POST -> http://localhost:3000/api/v1/todos
 }
 ```
 
-####Edit todo by id
+#### Edit todo by id
 
 ```
 PUT -> http://localhost:3000/api/v1/todos/<todo id>
@@ -39,11 +39,12 @@ PUT -> http://localhost:3000/api/v1/todos/<todo id>
 }
 ```
 
-####Delete todo by id
+#### Delete todo by id
 
 ```
 DELETE -> http://localhost:3000/api/v1/todos/<todo id>
 ```
 
-##Deployment
+## Deployment
+
 Application use dockers and for run it use docker-compose.
