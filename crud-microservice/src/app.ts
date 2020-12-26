@@ -6,6 +6,7 @@ import logger from "morgan";
 import dotenv from "dotenv";
 
 import indexRouter from "./routes/index";
+import todosRouter from "./routes/todos";
 
 import connectToDb from "./db/connect";
 // ENV var config
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // routes
 app.use("/", indexRouter);
+app.use("/api/v1/todos", todosRouter);
 
 // catch 404 and forward to error handler
 app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
