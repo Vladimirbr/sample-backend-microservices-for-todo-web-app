@@ -6,6 +6,8 @@ import dotenv from "dotenv";
 
 import indexRouter from "./routes/index";
 
+import { cronJob } from "./cron/cron";
+
 const app: express.Application = express();
 
 // ENV var config
@@ -34,5 +36,8 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
   res.status(err.status || 500);
   res.json(err);
 });
+
+//Start Cron
+cronJob.start();
 
 export default app;
