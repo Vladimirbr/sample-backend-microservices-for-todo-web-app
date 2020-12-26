@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 
 import indexRouter from "./routes/index";
 
+import connectToDb from "./db/connect";
 // ENV var config
 dotenv.config();
 
@@ -37,5 +38,8 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
   res.status(err.status || 500);
   res.json(err);
 });
+
+// connect to mongodb
+connectToDb();
 
 export default app;
